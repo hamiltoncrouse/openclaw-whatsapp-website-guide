@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How I Use OpenClaw on WhatsApp to Build Websites</title>
+  <meta name="description" content="A simple walkthrough of how Hamilton uses OpenClaw via WhatsApp to create and deploy websites." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">OC</div>
+        <div>
+          <div class="brand__title">OpenClaw + WhatsApp → Websites</div>
+          <div class="brand__sub">How Hamilton builds and deploys sites by chatting.</div>
+        </div>
+      </div>
+      <div class="nav__links" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#flow">Workflow</a>
+        <a href="#example">Example</a>
+        <a href="#deploy">Deploy</a>
+        <a href="#safety">Safety</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="overview">
+      <h1>How I build websites with OpenClaw on WhatsApp</h1>
+      <p class="muted">
+        I message my assistant (OpenClaw) in WhatsApp like a normal chat. OpenClaw runs on a server and can:
+        write code files, run commands, create GitHub repos, and deploy to services like Render.
+      </p>
+      <div class="callouts">
+        <div class="callout">
+          <div class="k">What it feels like</div>
+          <div class="v">Texting instructions → a website appears.</div>
+        </div>
+        <div class="callout">
+          <div class="k">What’s actually happening</div>
+          <div class="v">A bot on a server edits files + pushes to GitHub + triggers deploy.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <h2>The workflow (high level)</h2>
+      <ol class="steps">
+        <li>
+          <strong>Describe the site</strong>
+          <span class="muted">“Make a tribute site” / “Make a financial calculator” / “Make a landing page”</span>
+        </li>
+        <li>
+          <strong>OpenClaw generates the files</strong>
+          <span class="muted">HTML/CSS/JS (or a framework if needed), plus assets.</span>
+        </li>
+        <li>
+          <strong>Commit + push to GitHub</strong>
+          <span class="muted">The repo becomes the source of truth. Every change is tracked.</span>
+        </li>
+        <li>
+          <strong>Deploy</strong>
+          <span class="muted">Render auto-deploys on push, or GitHub Pages hosts static sites.</span>
+        </li>
+        <li>
+          <strong>Iterate via chat</strong>
+          <span class="muted">“Make it look better on mobile.” “Replace placeholders with real quotes.”</span>
+        </li>
+      </ol>
+
+      <div class="card">
+        <h3>Architecture (simple)</h3>
+        <pre class="mono">WhatsApp message
+   ↓
+OpenClaw (server)
+   ↓
+Code in a project folder
+   ↓
+GitHub repo
+   ↓
+Render/GitHub Pages deploy</pre>
+      </div>
+    </section>
+
+    <section class="section" id="example">
+      <h2>A real example (short)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>What I text</h3>
+          <pre class="mono">Make a website dedicated to Jackie Mason.
+Put it on GitHub.
+Deploy it to Render.
+Now make it look better on mobile.</pre>
+        </div>
+        <div class="card">
+          <h3>What OpenClaw does</h3>
+          <ul class="muted">
+            <li>Creates a project folder</li>
+            <li>Writes HTML/CSS/JS</li>
+            <li>Commits + pushes to GitHub</li>
+            <li>Creates a Render Blueprint file (render.yaml)</li>
+            <li>Updates styling until it looks right</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="deploy">
+      <h2>Deploy options</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Render (recommended for quick deploys)</h3>
+          <ul class="muted">
+            <li>Connect GitHub repo once</li>
+            <li>Enable auto-deploy</li>
+            <li>Every push redeploys automatically</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hostinger / shared hosting (great for static sites)</h3>
+          <ul class="muted">
+            <li>Upload the files (or sync via Git)</li>
+            <li>Cheapest + simplest for pure HTML/CSS/JS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="safety">
+      <h2>Safety + good practices</h2>
+      <ul class="muted">
+        <li><strong>Don’t put secrets in chat or code</strong> (API keys, passwords). Use environment variables.</li>
+        <li><strong>Use GitHub</strong> so every change is tracked and reversible.</li>
+        <li><strong>Start simple</strong> (static site), then add a backend only if needed.</li>
+      </ul>
+
+      <p class="tiny">
+        This page is intentionally high-level: it explains the concept without sharing any sensitive configuration.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div class="tiny">Made by Hamilton (with OpenClaw) — shared for Rob.</div>
+    </footer>
+  </main>
+</body>
+</html>
